@@ -35,6 +35,9 @@ export class CreateContactComponent implements OnInit {
         if (response.status === 200) {
           console.log(response);
           this.toastr.success('Contacts Created', 'Message');
+          setTimeout(() => {
+            this.router.navigate(['/contact-list']);
+          }, 1500);
           } else {
           this.toastr.warning(response.message, 'Message');
         }

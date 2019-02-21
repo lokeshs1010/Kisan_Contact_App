@@ -5,17 +5,32 @@
     <mat-divider></mat-divider>
     <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
     <mat-card-content>
-        <form class="example-form" (ngSubmit)="createContact()">          
+        <form class="example-form" #signIn="ngForm" (ngSubmit)="createContact()">          
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="First Name" [(ngModel)]="firstName" name="firstName">
+                <input matInput placeholder="First Name" #firstname="ngModel" [(ngModel)]="firstName" name="firstName" required>
               </mat-form-field>
+              <div [hidden]="firstname.pristine || firstname.valid" class="alert alert-danger">
+                  <div *ngIf="firstname.errors?.required">
+                     First Name is required!
+                  </div>
+               </div>
               <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Last Name" [(ngModel)]="lastName" name="lastName">
+                  <input matInput placeholder="Last Name" #lastname="ngModel" [(ngModel)]="lastName" name="lastName" required>
               </mat-form-field>
+              <div [hidden]="lastname.pristine || lastname.valid" class="alert alert-danger">
+                  <div *ngIf="lastname.errors?.required">
+                     First Name is required!
+                  </div>
+               </div>
               <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Phone Number" [(ngModel)]="phoneNumber" name="phoneNumber">
+                  <input matInput placeholder="Phone Number" #phone="ngModel" [(ngModel)]="phoneNumber" name="phoneNumber" required>
               </mat-form-field>
-                <button mat-raised-button color="primary">Create</button>
+              <div [hidden]="phone.pristine || phone.valid" class="alert alert-danger">
+                  <div *ngIf="phone.errors?.required">
+                     First Name is required!
+                  </div>
+               </div>
+                <button mat-raised-button color="primary" [disabled]="!signIn.form.valid">Create</button>
           </form>
     </mat-card-content>
   </mat-card>

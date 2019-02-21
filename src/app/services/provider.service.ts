@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class ProviderService {
 
-  API_URL: String = 'http://localhost:3000/';
+  API_URL: String = 'http://13.127.47.55:3000/';
 
   constructor(private http: HttpClient) { }
 

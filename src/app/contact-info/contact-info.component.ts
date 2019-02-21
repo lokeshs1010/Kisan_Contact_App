@@ -5,6 +5,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ProviderService } from '../services/provider.service';
 
+export interface ContactDetails {
+  firstName?: string;
+  phoneNumber?: number;
+  lastName?: string;
+}
 @Component({
   selector: 'app-contact-info',
   templateUrl: './contact-info.component.html',
@@ -12,7 +17,7 @@ import { ProviderService } from '../services/provider.service';
 })
 export class ContactInfoComponent implements OnInit {
   contactId: String;
-  contactDetails: [];
+  contactDetails: any = [];
 
   constructor(private providerService: ProviderService,
     private router: Router,

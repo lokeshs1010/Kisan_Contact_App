@@ -11,8 +11,8 @@ import { ProviderService } from '../services/provider.service';
 })
 export class NewMessageComponent implements OnInit {
 
-  private message: String;
-  private otp: Number;
+  message: String;
+  otp: Number;
   contactId: String;
 
   constructor(private providerService: ProviderService,
@@ -48,6 +48,9 @@ export class NewMessageComponent implements OnInit {
       if (response.status === 200) {
         console.log(response);
         this.toastr.success('Message Sent', 'Message');
+        setTimeout(() => {
+          this.router.navigate(['/message-sent-list']);
+        }, 1500);
         } else {
         this.toastr.warning(response.message, 'Message');
       }
