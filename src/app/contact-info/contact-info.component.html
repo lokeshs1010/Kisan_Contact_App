@@ -1,0 +1,20 @@
+<mat-card class="example-card center">
+  <mat-card-header style="text-align: center;">
+    <mat-card-title>Profile Info</mat-card-title>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+  <mat-card-content>
+      <mat-grid-list cols="2" rowHeight="5:1">
+          <mat-grid-tile><h1>First Name:</h1></mat-grid-tile>
+          <mat-grid-tile>{{contactDetails?.firstName}}</mat-grid-tile>
+          <mat-grid-tile><h1>Last Name:</h1></mat-grid-tile>
+          <mat-grid-tile>{{contactDetails?.lastName}}</mat-grid-tile>
+          <mat-grid-tile><h1>Mobile Number:</h1></mat-grid-tile>
+          <mat-grid-tile>{{contactDetails?.phoneNumber}}</mat-grid-tile>
+        </mat-grid-list>
+  </mat-card-content>
+  <mat-card-actions style="text-align: center;">
+    <a mat-raised-button color="accent" [routerLink]="['/new-message',contactId]">Send Message</a>
+  </mat-card-actions>
+</mat-card>

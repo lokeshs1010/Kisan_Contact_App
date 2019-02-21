@@ -1,0 +1,21 @@
+<mat-card class="example-card center">
+    <mat-card-header style="text-align: center;">
+      <mat-card-title>Create Contact</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+    <mat-card-content>
+        <form class="example-form" (ngSubmit)="createContact()">          
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="First Name" [(ngModel)]="firstName" name="firstName">
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Last Name" [(ngModel)]="lastName" name="lastName">
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Phone Number" [(ngModel)]="phoneNumber" name="phoneNumber">
+              </mat-form-field>
+                <button mat-raised-button color="primary">Create</button>
+          </form>
+    </mat-card-content>
+  </mat-card>

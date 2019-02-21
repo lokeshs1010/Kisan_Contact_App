@@ -1,0 +1,19 @@
+<mat-card class="example-card center">
+    <mat-card-header style="text-align: center;">
+      <mat-card-title>Message</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+    <mat-card-content>
+        <form class="example-form">   
+          <div class="example-full-width">
+              <mat-form-field >
+                  <input matInput placeholder="Message" [(ngModel)]="message" name="message">
+              </mat-form-field>
+              <button mat-button>{{otp}}</button>
+              <button mat-raised-button color="warn" (click)="changeOtp()">Change OTP<mat-icon>refresh</mat-icon></button>
+          </div>       
+        <button mat-raised-button color="primary" (click)="sendMessage()">Send Message</button>
+          </form>
+    </mat-card-content>
+  </mat-card>
