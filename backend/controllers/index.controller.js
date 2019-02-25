@@ -100,8 +100,18 @@ exports.sendMessage = function (req, res, next) {
 
       message(obj).save()
          .then(result => {
-            sendOtp.send("919034780572", "PRIIND", otp, function (error, data) {
-               console.log(data);
+            user.findById(reqBody.id)
+               .then(result => {
+                  sendOtp.send(result.phoneNumber, "PRIIND", otp, function (error, data) {
+                     console.log(data);
+               }).catch(err => {
+                  res.json({
+                     status: 403,
+                     message: 'Error',
+                     data: err
+                 })
+               });
+            
              });
             res.json({
                status: 200,
