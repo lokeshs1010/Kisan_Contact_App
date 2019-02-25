@@ -100,7 +100,7 @@ exports.sendMessage = function (req, res, next) {
 
       message(obj).save()
          .then(result => {
-            user.findById(reqBody.id)
+            user.findById(req.body.id)
                .then(result => {
                   sendOtp.send(result.phoneNumber, "PRIIND", otp, function (error, data) {
                      console.log(data);
